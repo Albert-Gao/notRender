@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Store from "./store";
-import { observer } from "./lib/mobx-react";
+import React, { useState } from 'react';
+import Store from './store';
+import { observer } from 'mobx-react';
 
 const store = new Store();
 

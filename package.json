@@ -8,6 +8,8 @@
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "mobx": "^5.5.2",
+    "mobx-react": "^5.3.6",
+    "normalize.css": "^8.0.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-scripts": "2.1.1",
@@ -22,7 +24,8 @@
     "eject": "react-scripts eject",
     "formatAllCode": "./node_modules/.bin/prettier --write './src/**/*.js'",
     "lint:css": "stylelint './src/**/*.js'",
-    "bundleAnalysis": "node ./buildAnalysis.js"
+    "bundleAnalysis": "node ./buildAnalysis.js",
+    "update": "yarn upgrade-interactive"
   },
   "eslintConfig": {
     "extends": "react-app"
