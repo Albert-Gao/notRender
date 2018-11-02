@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
 import { ROUTES } from '../../routes/routes';
 import HomeScreenShowData from './components/HomeScreenShowData';
 import { StoreContext } from '../../store/store';
-import { observer } from '../../utils/utils';
 
 function HomeScreen() {
   // const { appStore } = useContext(StoreContext);
