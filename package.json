@@ -7,11 +7,13 @@
     "@types/node": "^10.12.1",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
-    "mobx": "^5.5.2",
+    "@types/react-router-dom": "^4.3.1",
+    "mobx": "^4.5.2",
     "mobx-react": "^5.3.6",
     "normalize.css": "^8.0.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "styled-components": "^4.0.3",
     "styled-tools": "^1.5.2",
@@ -38,7 +40,7 @@
   ],
   "prettier": {
     "trailingComma": "all",
-    "printWidth": 65,
+    "printWidth": 55,
     "singleQuote": true
   },
   "stylelint": {

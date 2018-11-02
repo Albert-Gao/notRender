@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
-import App from './components/App/App';
+import Routes from './routes/routes';
 import { StoreContextWrapper } from './store/store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <StoreContextWrapper>
-    <App />
+    <Routes />
   </StoreContextWrapper>,
   document.getElementById('root'),
 );
