@@ -1,4 +1,6 @@
 import React from 'react';
+// @ts-ignore
+import Typing from 'react-typing-animation';
 import { styled } from '../../../../../styles/styledLib';
 import { Card, Box } from 'rebass';
 import { FlexCard } from '../../../../../components/buildingBlocks';
@@ -16,7 +18,9 @@ const FlexCardWrapper = styled(FlexCard)`
   }
 `;
 
-const Words = () => {
+const Words: React.SFC<{ text: string }> = ({
+  text,
+}) => {
   return (
     <FlexCardWrapper
       ml={3}
@@ -28,7 +32,9 @@ const Words = () => {
       borderRadius={4}
       bg="white1"
     >
-      111211221121212
+      <Typing speed={100}>
+        <span>{text}</span>
+      </Typing>
     </FlexCardWrapper>
   );
 };

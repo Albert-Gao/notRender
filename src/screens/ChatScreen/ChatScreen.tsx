@@ -21,8 +21,8 @@ const ChatScreen = () => (
       py={6}
       bg="background"
     >
-      <Chat />
-      <Chat />
+      <Chat text="你好，我是COCO，请问你来自中国哪个地方？" />
+      <Chat text="我知道了，你希望来新西兰学习什么专业领域呢？" />
     </Box>
   </Flex>
 );
