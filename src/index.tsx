@@ -10,14 +10,14 @@ import * as serviceWorker from './serviceWorker';
 
 const render = () =>
   ReactDOM.render(
-    <StoreContextWrapper>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <StoreContextWrapper>
         <React.Fragment>
           <GlobalCSS />
           <Routes />
         </React.Fragment>
-      </ThemeProvider>
-    </StoreContextWrapper>,
+      </StoreContextWrapper>
+    </ThemeProvider>,
     document.getElementById('root'),
   );
 
