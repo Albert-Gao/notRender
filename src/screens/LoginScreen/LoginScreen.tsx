@@ -1,9 +1,9 @@
 import React from 'react';
-import GoBackButton from '../../components/GoBackButton';
+import Header from '../../components/Header/Header';
 
 const LoginScreen = () => (
   <div>
-    <GoBackButton />
+    <Header title="登陆" />
     Login Screen
   </div>
 );

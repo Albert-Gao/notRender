@@ -1,18 +1,9 @@
-import React, { createContext } from 'react';
+import React from 'react';
+import { Provider } from 'mobx-react';
 import AppStore from './AppStore';
 
 const appStore = new AppStore();
 
-const store = {
-  appStore,
-};
-
-export const StoreContext = createContext(store);
-
 export const StoreContextWrapper = ({ children }) => (
-  <StoreContext.Provider value={store}>
-    {children}
-  </StoreContext.Provider>
+  <Provider appStore={appStore}>{children}</Provider>
 );
-
-export default store;

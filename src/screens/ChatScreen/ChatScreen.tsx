@@ -1,11 +1,11 @@
 import React from 'react';
-import GoBackButton from '../../components/GoBackButton';
+import { Flex } from 'rebass';
+import Header from '../../components/Header/Header';
 
 const ChatScreen = () => (
-  <div>
-    <GoBackButton />
-    Chat Screen
-  </div>
+  <Flex width={1}>
+    <Header title="免费评估" />
+  </Flex>
 );
 
 export default ChatScreen;
