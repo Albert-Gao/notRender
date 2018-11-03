@@ -897,6 +897,11 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/styled-system@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.0.6.tgz#b7fa8787662f8ff0c9ba17ea1569f5afe2c7cb11"
+  integrity sha512-IgWeeltHfzCrn4gUHYMZIT4+2dZ9wIedcuQX52XDpv2yHnKSr4sktUkroVOicqYCeUw/F+dHqOLovdQcFEJJpQ==
+
 "@types/tapable@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
@@ -9585,7 +9590,7 @@ styled-components@^4.0.3:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-system@^3.1.4:
+styled-system@^3.1.11, styled-system@^3.1.4:
   version "3.1.11"
   resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-3.1.11.tgz#a91a38cf7a0f0e625b897a04fdd506a359a3629f"
   integrity sha512-d0p32F7Y55uRWNDb1P0JcIiGVi13ZxiSCvn8zNS68exAKW9Q5jp+IGTXUIavQOD/J8r3tydtE3vRk8Ii2i39HA==

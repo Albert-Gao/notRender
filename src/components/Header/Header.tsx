@@ -11,7 +11,9 @@ const Header: React.SFC<{ title: string }> = ({
     p={2}
     width={1}
     css={{
-      boxShadow: '0px 1px 1px 1px rgba(0, 0, 0, 0.15)',
+      position: 'fixed',
+      boxShadow: '0px 2.5px 7px 3px rgba(0,0,0,0.15)',
+      zIndex: 2,
     }}
   >
     <Box width={1 / 5}>

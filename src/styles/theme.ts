@@ -12,7 +12,7 @@ export interface ThemeInterface extends RebassTheme {
   fontWeights: number[];
   lineHeights: number[];
   letterSpacings: number[];
-  shadows: {};
+  shadows: string[];
   borders: {};
   radii: string[];
   opacity: number[];
@@ -31,6 +31,8 @@ const theme: ThemeInterface = {
   ],
   colors: {
     primary: '#E75B41',
+    background: '#EDEEEF',
+    white1: '#FEFFFF',
   },
   space: [
     '0.125em',
@@ -39,14 +41,16 @@ const theme: ThemeInterface = {
     '1em',
     '2em',
     '5em',
+    '7em',
   ],
   fonts: {},
   fontWeights: [300, 400, 500, 600, 700],
   lineHeights: [],
   letterSpacings: [],
-  shadows: {
-    box: '0px 1px 1px 1px rgba(0, 0, 0, 0.15',
-  },
+  shadows: [
+    '0px 1px 1px 1px rgba(0, 0, 0, 0.15)',
+    '0px 0px 5px 4px rgba(0, 0, 0, .15)',
+  ],
   borders: {},
   radii: [],
   opacity: [],
