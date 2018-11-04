@@ -6,9 +6,11 @@ const Avatar = () => (
   <Image
     src={backButton}
     bg="primary"
-    width={50}
     height={50}
     mr={2}
+    css={{
+      minWidth: '50px',
+    }}
   />
 );
 

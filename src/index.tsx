@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
 import Routes from './routes/routes';
-import { StoreContextWrapper } from './store/store';
+import StoreContextWrapper from './store/store';
 import { ThemeProvider } from './styles/styledLib';
 import theme from './styles/theme';
 import GlobalCSS from './styles/globalCSS';

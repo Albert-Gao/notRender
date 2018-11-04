@@ -2,7 +2,6 @@ import React from 'react';
 // @ts-ignore
 import Typing from 'react-typing-animation';
 import { styled } from '../../../../../styles/styledLib';
-import { Card, Box } from 'rebass';
 import { FlexCard } from '../../../../../components/buildingBlocks';
 
 const FlexCardWrapper = styled(FlexCard)`
@@ -18,21 +17,29 @@ const FlexCardWrapper = styled(FlexCard)`
   }
 `;
 
-const Words: React.SFC<{ text: string }> = ({
-  text,
-}) => {
+const Words: React.SFC<{
+  text: string;
+  callback: Function;
+}> = ({ text, callback }) => {
   return (
     <FlexCardWrapper
       ml={3}
       boxShadow={1}
-      height={41}
+      height="auto"
       alignItems="center"
       px={4}
       py={1}
       borderRadius={4}
       bg="white1"
+      css={{
+        minHeight: '41px',
+      }}
     >
-      <Typing speed={100}>
+      <Typing
+        startDelay={300}
+        speed={100}
+        onFinishedTyping={callback}
+      >
         <span>{text}</span>
       </Typing>
     </FlexCardWrapper>

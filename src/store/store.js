@@ -4,6 +4,6 @@ import AppStore from './AppStore';
 
 const appStore = new AppStore();
 
-export const StoreContextWrapper = ({ children }) => (
+export default ({ children }) => (
   <Provider appStore={appStore}>{children}</Provider>
 );

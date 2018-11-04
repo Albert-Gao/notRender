@@ -16,11 +16,11 @@ const Header: React.SFC<{ title: string }> = ({
       zIndex: 2,
     }}
   >
-    <Box width={1 / 5}>
+    <Box width={1 / 4}>
       <GoBackButton />
     </Box>
     <Flex
-      width={3 / 5}
+      width={2 / 4}
       alignItems="center"
       justifyContent="center"
     >
@@ -28,7 +28,7 @@ const Header: React.SFC<{ title: string }> = ({
         {title}
       </Text>
     </Flex>
-    <Box width={1 / 5} />
+    <Box width={1 / 4} />
   </Flex>
 );
 
