@@ -31,8 +31,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './src/**/*.ts' './src/**/*.tsx'",
-    "lint:css": "stylelint './src/**/*.js'",
-    "bundleAnalysis": "node ./buildAnalysis.js",
+    "lint:css": "stylelint './src/**/*.ts' './src/**/*.tsx'",
+    "bundleAnalysis": "node ./bundleAnalysis.js",
     "update": "yarn upgrade-interactive"
   },
   "eslintConfig": {
