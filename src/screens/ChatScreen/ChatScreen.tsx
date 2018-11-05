@@ -4,12 +4,11 @@ import { inject, observer } from 'mobx-react';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
-import AppStore from '../../store/AppStore';
+import { ReactElementArray } from '../../store/AppStore';
 
 const ChatScreen: React.SFC<{
-  appStore: AppStore;
-}> = ({ appStore }) => {
-  console.log(appStore.currentStepIndex);
+  steps: ReactElementArray;
+}> = ({ steps }) => {
   return (
     <Flex width={1} flexDirection="column">
       <Header title="免费评估" />
@@ -26,12 +25,12 @@ const ChatScreen: React.SFC<{
         py={6}
         bg="background"
       >
-        <PoseGroup>{appStore.steps}</PoseGroup>
+        <PoseGroup>{steps}</PoseGroup>
       </Box>
     </Flex>
   );
 };
 
-export default inject('appStore')(
-  observer(ChatScreen),
-);
+export default inject(({ appStore }) => ({
+  steps: appStore.steps,
+}))(observer(ChatScreen));

@@ -16,20 +16,23 @@ export interface IStep {
   props: object;
 }
 
+export type ReactElementArray = React.ReactElement<
+  React.ReactNode
+>[];
+
 configure({ enforceActions: 'observed' });
 export default class AppStore {
   @observable
   toRender: IStep[] = [];
 
   @observable
-  steps: React.ReactElement<React.ReactNode>[] = [];
+  steps: ReactElementArray = [];
 
   currentStepIndex = 0;
 
   constructor() {
     this.toRender = createStepsToRender(this.nextStep);
     this.addNewStep(this.currentStepIndex);
-    console.log('AppStore constructor');
   }
 
   @action.bound
@@ -40,7 +43,6 @@ export default class AppStore {
       return;
     }
 
-    console.log(`next step: ${this.currentStepIndex}`);
     this.currentStepIndex += 1;
     this.addNewStep(this.currentStepIndex);
   }
