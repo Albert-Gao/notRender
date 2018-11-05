@@ -56,7 +56,6 @@ const Words: React.SFC<IWordsProps> = ({
         isEnterAnimationFinished={
           isEnterAnimationFinished
         }
-        justifyContent="center"
         css={{
           minHeight: '41px',
         }}
