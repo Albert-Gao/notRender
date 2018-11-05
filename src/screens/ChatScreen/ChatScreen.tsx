@@ -11,7 +11,7 @@ const ChatScreen: React.SFC<{
 }> = ({ steps }) => {
   return (
     <Flex width={1} flexDirection="column">
-      <Header title="免费评估" />
+      <Header title="我是空空的标题栏" />
       <Box
         css={{
           position: 'absolute',
@@ -25,7 +25,7 @@ const ChatScreen: React.SFC<{
         py={6}
         bg="background"
       >
-        <PoseGroup>{steps}</PoseGroup>
+        <PoseGroup animateOnMount>{steps}</PoseGroup>
       </Box>
     </Flex>
   );

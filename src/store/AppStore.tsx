@@ -1,11 +1,13 @@
 import { configure, observable, action } from 'mobx';
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import createStepsToRender from './createStepsToRender';
 import { Flex } from 'rebass';
-import { FromLeft, FromRight } from './utils';
+import { getAnimationWrapper } from './utils';
 
 export interface IStep {
   component: React.ComponentType<any>;
+  isEnterAnimationFinished: boolean;
   position: 'left' | 'right';
   props: object;
 }
@@ -45,6 +47,13 @@ export default class AppStore {
     return index >= this.toRender.length;
   }
 
+  @action.bound
+  finishEnterAnimation(index: number) {
+    this.toRender[
+      index
+    ].isEnterAnimationFinished = true;
+  }
+
   addNewStep(index: number) {
     if (this.isIndexOutOfRange(index)) return;
 
@@ -57,10 +66,33 @@ export default class AppStore {
       ? 'flex-start'
       : 'flex-end';
 
+    const InjectedComponent = inject(
+      ({ appStore }: { appStore: AppStore }) => ({
+        isEnterAnimationFinished:
+          appStore.toRender[index]
+            .isEnterAnimationFinished,
+      }),
+    )(observer(Component));
+
     const inner = (
       <Flex width={1} justifyContent={position}>
-        <Component {...props} />
+        <InjectedComponent {...props} />
       </Flex>
+    );
+
+    const waitTime = 160;
+    const FromLeft = getAnimationWrapper(true, () => {
+      setTimeout(() => {
+        this.finishEnterAnimation(index);
+      }, waitTime);
+    });
+    const FromRight = getAnimationWrapper(
+      false,
+      () => {
+        setTimeout(() => {
+          this.finishEnterAnimation(index);
+        }, waitTime);
+      },
     );
 
     const toRender = shouldPlaceLeft ? (
