@@ -1,18 +1,12 @@
 import { configure, observable, action } from 'mobx';
 import React from 'react';
-import posed from 'react-pose';
 import createStepsToRender from './createStepsToRender';
-
-const UpInChild = posed.div({
-  enter: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: { x: -100, opacity: 0 },
-});
+import { Flex } from 'rebass';
+import { FromLeft, FromRight } from './utils';
 
 export interface IStep {
   component: React.ComponentType<any>;
+  position: 'left' | 'right';
   props: object;
 }
 
@@ -54,13 +48,27 @@ export default class AppStore {
   addNewStep(index: number) {
     if (this.isIndexOutOfRange(index)) return;
 
+    const shouldPlaceLeft =
+      this.toRender[index].position === 'left';
+
     const Component = this.toRender[index].component;
     const props = this.toRender[index].props;
+    const position = shouldPlaceLeft
+      ? 'flex-start'
+      : 'flex-end';
 
-    this.steps.push(
-      <UpInChild key={index}>
+    const inner = (
+      <Flex width={1} justifyContent={position}>
         <Component {...props} />
-      </UpInChild>,
+      </Flex>
     );
+
+    const toRender = shouldPlaceLeft ? (
+      <FromLeft key={index}>{inner}</FromLeft>
+    ) : (
+      <FromRight key={index}>{inner}</FromRight>
+    );
+
+    this.steps.push(toRender);
   }
 }
