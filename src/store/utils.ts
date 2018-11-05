@@ -1,6 +1,6 @@
 import posed from 'react-pose';
 
-export const getAnimationParams = (value: number) => ({
+const getAnimationParams = (value: number) => ({
   enter: {
     x: 0,
     opacity: 1,
