@@ -2,23 +2,16 @@ import React from 'react';
 import { Flex } from 'rebass';
 import Words, {
   IWordsProps,
-} from './components/Words';
+} from './components/Words/Words';
 import Avatar from './components/Avatar';
 
 const Chat: React.SFC<IWordsProps> = ({
-  isEnterAnimationFinished,
   text,
   callback,
 }) => (
-  <Flex mb={4}>
+  <Flex mb={4} alignItems="center">
     <Avatar />
-    <Words
-      isEnterAnimationFinished={
-        isEnterAnimationFinished
-      }
-      text={text}
-      callback={callback}
-    />
+    <Words text={text} callback={callback} />
   </Flex>
 );
 
