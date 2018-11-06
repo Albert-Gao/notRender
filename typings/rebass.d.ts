@@ -16,6 +16,10 @@ declare module 'rebass' {
     id?: string;
   }
 
+  interface InterativeProps {
+    onClick?: Function;
+  }
+
   export interface Space {
     m?: Responsive;
     mt?: Responsive;
@@ -446,7 +450,8 @@ declare module 'rebass' {
       FontWeight,
       TextAlign,
       UniversalProps,
-      LineHeight {}
+      LineHeight,
+      InterativeProps {}
   type TextClass = React.StatelessComponent<TextProps>;
   export const Text: TextClass;
   export const Heading: TextClass;
@@ -594,7 +599,8 @@ declare module 'rebass' {
       Space,
       UniversalProps,
       Width,
-      Color {
+      Color,
+      InterativeProps {
     src: string;
     alt?: string; // really this should be required for accessibility, but that's more of a linting issue than a type checker concern
   }

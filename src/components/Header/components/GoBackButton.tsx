@@ -4,7 +4,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 import { Image, Button, Flex } from 'rebass';
-import backButton from '../../../assets/backButton.svg';
+import backButton from '../../../assets/arrowBack.svg';
 import { History } from 'history';
 
 const onClickHandler = (history: History) => () =>

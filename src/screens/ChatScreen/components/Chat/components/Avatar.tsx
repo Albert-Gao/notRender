@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'rebass';
-import backButton from '../../../../../assets/backButton.svg';
+import backButton from '../../../../../assets/arrowBack.svg';
 
 const Avatar = () => (
   <Image
