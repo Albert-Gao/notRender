@@ -1,4 +1,4 @@
-let city_object = {
+let cities_object = {
   '110100': {
     province: '北京市',
     name: '市辖区',
@@ -1720,4 +1720,4 @@ let city_object = {
     id: '659000',
   },
 };
-export { city_object };
+export { cities_object };

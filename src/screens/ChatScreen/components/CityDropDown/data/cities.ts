@@ -1,4 +1,4 @@
-let city = {
+let cities = {
   '110000': [
     {
       province: '北京市',
@@ -1782,4 +1782,4 @@ let city = {
     },
   ],
 };
-export { city };
+export { cities };

@@ -1,4 +1,4 @@
-let area_object = {
+let areas_object = {
   '110101': {
     city: '市辖区',
     name: '东城区',
@@ -15650,4 +15650,4 @@ let area_object = {
     id: '659006',
   },
 };
-export { area_object };
+export { areas_object };

@@ -1,4 +1,4 @@
-let area = {
+let areas = {
   '110100': [
     {
       city: '市辖区',
@@ -16334,4 +16334,4 @@ let area = {
     },
   ],
 };
-export { area };
+export { areas };
