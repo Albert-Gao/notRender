@@ -10,6 +10,10 @@ import {
   FadeChild,
   FadeChildWithDelay,
 } from './Words.animation';
+import {
+  WORDS_LOADING_STATUS,
+  useLoadingStatus,
+} from './loadingStatus';
 
 export interface IWordsProps extends IBaseStepType {
   text: string;
@@ -19,18 +23,15 @@ const Words: React.SFC<IWordsProps> = ({
   text,
   callback,
 }) => {
-  const [writingStatus, setIsWritingEnd] = useState(0);
-
-  if (writingStatus === 0) {
-    setIsWritingEnd(1);
-    setTimeout(() => {
-      setIsWritingEnd(2);
-    }, 1800);
-  }
+  const loadingStatus = useLoadingStatus();
 
   return (
     <ScaleBox
-      pose={writingStatus === 0 ? 'enter' : 'exit'}
+      pose={
+        loadingStatus === WORDS_LOADING_STATUS.NORMAL
+          ? 'enter'
+          : 'exit'
+      }
     >
       <FlexCard
         ml={3}
@@ -46,7 +47,8 @@ const Words: React.SFC<IWordsProps> = ({
         }}
       >
         <PoseGroup>
-          {writingStatus === 1 && (
+          {loadingStatus ===
+            WORDS_LOADING_STATUS.WRITING && (
             <FadeChildWithDelay key="img">
               <img
                 src={writingAnimation}
@@ -54,7 +56,8 @@ const Words: React.SFC<IWordsProps> = ({
               />
             </FadeChildWithDelay>
           )}
-          {writingStatus === 2 && (
+          {loadingStatus ===
+            WORDS_LOADING_STATUS.TYPING && (
             <FadeChild key="typing">
               <Typing
                 speed={7}
