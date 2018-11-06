@@ -922,7 +922,7 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/styled-system@^3.0.6":
+"@types/styled-system@^3.0.7":
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.0.7.tgz#1bb1b5161f2009f10aa37c4c627ecb78fa543cb3"
   integrity sha512-5IVTchugOLqVdSQcF7C5b544k3zML1+EhA67pWnueMwz/wrr15GXHw8GvdOQqgm9mZ3HbgZSBMXDSH5Q0yZE8Q==
@@ -8519,7 +8519,7 @@ react-error-overlay@^5.1.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
 
-react-is@^16.3.2, react-is@^16.5.1, react-is@^16.6.0:
+react-is@^16.3.2, react-is@^16.6.0:
   version "16.6.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
   integrity sha512-q8U7k0Fi7oxF1HvQgyBjPwDXeMplEsArnKt2iYhuIF86+GBbgLHdAmokL3XUFjTd7Q363OSNG55FOGUdONVn1g==
@@ -8529,15 +8529,14 @@ react-lifecycles-compat@^3.0.2:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pose@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-3.4.0.tgz#4adc829b47bffecf43b2082bd8bc3b0ac77d6b66"
-  integrity sha512-4dBScQIyaBenYg+Z+bdKj539rVIAmJDRO4uyn1gofrI+YWozBzYIfYuAz3PtCqTvBCyX9Tm0vo3pIRmTvY85Vw==
+react-pose@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.1.tgz#d26ef0894daddea37dbfeae05a01d4a54b33e6d6"
+  integrity sha512-VGzfkSTlb2ykLuU3jMIX2xWc4/pYNlFfa1jaeFhaCPTLTaST8QCIC4li9bBfo0pFFCT3rPX+MmX5qqiecCSh5A==
   dependencies:
     "@emotion/is-prop-valid" "^0.6.5"
     hey-listen "^1.0.5"
     popmotion-pose "^3.4.0"
-    react-is "^16.5.1"
     tslib "^1.9.1"
 
 react-router-dom@^4.3.1:
