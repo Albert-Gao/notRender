@@ -97,7 +97,16 @@ const DropDown: React.SFC<IDropDownProps> = ({
         onClick={openListOnClick}
       >
         <Text>{toDisplay}</Text>
-        <Image src={arrowDown} alt="" />
+        <Image
+          css={{
+            transform: isOpen
+              ? 'rotate(180deg)'
+              : 'rotate(0deg)',
+            transition: 'transform 0.3s ease',
+          }}
+          src={arrowDown}
+          alt=""
+        />
       </FlexCard>
 
       <PoseGroup
