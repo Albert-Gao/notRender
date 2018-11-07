@@ -1,6 +1,7 @@
 import Chat from '../screens/ChatScreen/components/Chat/Chat';
 import { IStep } from './AppStore.type';
 import LocationDropDown from '../screens/ChatScreen/components/LocationDropDown/LocationDropDown';
+import StudyAreasDropDown from '../screens/ChatScreen/components/StudyAreasDropDown';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -27,6 +28,13 @@ export default (callback: Function): IStep[] => [
     props: {
       text:
         '我知道了，你希望来新西兰学习什么专业领域呢？',
+      callback,
+    },
+  },
+  {
+    component: StudyAreasDropDown,
+    position: RIGHT,
+    props: {
       callback,
     },
   },

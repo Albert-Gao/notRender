@@ -34,6 +34,9 @@ export default class AppStore {
     id: '',
   };
 
+  @observable
+  selectedStudyArea = '';
+
   currentStepIndex = 0;
 
   constructor() {
@@ -56,6 +59,11 @@ export default class AppStore {
   @action.bound
   setSelectedCity(city: ICity) {
     this.selectedCity = city;
+  }
+
+  @action.bound
+  setSelectedStudyArea(selectedStudyArea: string) {
+    this.selectedStudyArea = selectedStudyArea;
   }
 
   @action.bound

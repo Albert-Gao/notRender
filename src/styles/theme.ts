@@ -50,6 +50,7 @@ const theme: ThemeInterface = {
   shadows: [
     '0px 1px 1px 1px rgba(0, 0, 0, 0.15)',
     '0px 0px 5px 4px rgba(0, 0, 0, .15)',
+    '0 4px 16px rgba(0, 0, 0.25, 0.4)', // for drop down
   ],
   borders: {},
   radii: [],

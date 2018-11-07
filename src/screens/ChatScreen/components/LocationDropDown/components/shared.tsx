@@ -6,7 +6,7 @@ import {
   ILocation,
 } from '../../../../../store/AppStore.type';
 
-const defaultSelected = {
+const initializeSelected = {
   name: '',
   id: '',
 };
@@ -75,7 +75,7 @@ export const SharedDropDown: React.SFC<
 }) => (
   <DropDown
     hasBoxShadow={false}
-    defaultSelected={defaultSelected}
+    initializeSelected={initializeSelected}
     items={items}
     setText={setText}
     whenSelectItem={whenSelectItem}

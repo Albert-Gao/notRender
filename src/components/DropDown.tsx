@@ -11,22 +11,40 @@ const ListBox = posed.div({
 
 interface IDropDownProps {
   hasBoxShadow?: boolean;
-  defaultSelected: any;
+  initializeSelected: any;
   items: any[];
   setText?: string;
   whenSelectItem: (
     event: React.MouseEvent<HTMLElement>,
     selectItemFromList: Function,
   ) => void;
-  displaySelected: (selected: any) => string;
+  displaySelected?: (selected: any) => string;
   displayItems: (
     itemOnClick: Function,
   ) => (item: any) => React.ReactNode;
 }
 
+const getValueToDisplay = ({
+  displaySelected,
+  selectedItem,
+  setText,
+}: {
+  displaySelected?: Function;
+  selectedItem: any;
+  setText?: string;
+}) => {
+  if (setText) return setText;
+
+  if (typeof displaySelected === 'function') {
+    return displaySelected(selectedItem);
+  }
+
+  return selectedItem;
+};
+
 const DropDown: React.SFC<IDropDownProps> = ({
   hasBoxShadow,
-  defaultSelected,
+  initializeSelected,
   items,
   setText,
   whenSelectItem,
@@ -35,7 +53,7 @@ const DropDown: React.SFC<IDropDownProps> = ({
 }) => {
   const [isOpen, toggleOpen] = useState(false);
   const [selectedItem, selectItemFromList] = useState(
-    defaultSelected,
+    initializeSelected,
   );
 
   function openListOnClick() {
@@ -53,9 +71,11 @@ const DropDown: React.SFC<IDropDownProps> = ({
     ? '0 4px 16px rgba(0, 0, 0.25, 0.4)'
     : '';
 
-  let toDisplay = setText
-    ? setText
-    : displaySelected(selectedItem);
+  let toDisplay = getValueToDisplay({
+    displaySelected,
+    selectedItem,
+    setText,
+  });
 
   return (
     <FlexCard
