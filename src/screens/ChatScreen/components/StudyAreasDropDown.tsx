@@ -47,8 +47,8 @@ const displayItem = (itemOnClick: Function) => (
 );
 
 interface IStudyAreasDropDown extends IBaseStepType {
-  selectedStudyArea?: string;
-  setSelectedStudyArea?: Function;
+  selectedStudyArea: string;
+  setSelectedStudyArea: Function;
 }
 
 const StudyAreasDropDown: React.SFC<
@@ -65,7 +65,7 @@ const StudyAreasDropDown: React.SFC<
     const target = event.target as HTMLElement;
     const selectedStudyArea = target.innerText;
 
-    setSelectedStudyArea!(selectedStudyArea);
+    setSelectedStudyArea(selectedStudyArea);
     selectItemFromList(selectedStudyArea);
 
     callback();
