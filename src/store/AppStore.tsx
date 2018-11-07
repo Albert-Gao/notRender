@@ -1,21 +1,17 @@
-import { configure, observable, action } from 'mobx';
 import React from 'react';
+import { action, configure, observable } from 'mobx';
 import createStepsToRender from './createStepsToRender';
 import { Flex } from 'rebass';
 import {
-  getAnimationWrapper,
+  wrapComponent,
   getComponentInfo,
 } from './utils';
-
-export interface IStep {
-  component: React.ComponentType<any>;
-  position: 'left' | 'right';
-  props: object;
-}
-
-export type ReactElementArray = React.ReactElement<
-  React.ReactNode
->[];
+import {
+  ICity,
+  ILocation,
+  IStep,
+  ReactElementArray,
+} from './AppStore.type';
 
 configure({ enforceActions: 'observed' });
 export default class AppStore {
@@ -24,6 +20,19 @@ export default class AppStore {
 
   @observable
   steps: ReactElementArray = [];
+
+  @observable
+  selectedProvince: ILocation = {
+    name: '',
+    id: '',
+  };
+
+  @observable
+  selectedCity: ICity = {
+    province: '',
+    name: '',
+    id: '',
+  };
 
   currentStepIndex = 0;
 
@@ -42,6 +51,16 @@ export default class AppStore {
 
     this.currentStepIndex += 1;
     this.addNewStep(this.currentStepIndex);
+  }
+
+  @action.bound
+  setSelectedCity(city: ICity) {
+    this.selectedCity = city;
+  }
+
+  @action.bound
+  setSelectedProvince(province: ILocation) {
+    this.selectedProvince = province;
   }
 
   isIndexOutOfRange(index: number): boolean {
@@ -73,13 +92,10 @@ export default class AppStore {
       </Flex>
     );
 
-    const FromLeft = getAnimationWrapper(true);
-    const FromRight = getAnimationWrapper(false);
-
-    const toRender = shouldPlaceLeft ? (
-      <FromLeft key={index}>{inner}</FromLeft>
-    ) : (
-      <FromRight key={index}>{inner}</FromRight>
+    const toRender = wrapComponent(
+      inner,
+      shouldPlaceLeft,
+      index,
     );
 
     this.steps.push(toRender);

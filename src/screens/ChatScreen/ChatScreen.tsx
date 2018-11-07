@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
-import { ReactElementArray } from '../../store/AppStore';
+import { ReactElementArray } from '../../store/AppStore.type';
 
 const ChatScreen: React.SFC<{
   steps: ReactElementArray;

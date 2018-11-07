@@ -9,14 +9,11 @@ const ListBox = posed.div({
   exit: { opacity: 0, scaleY: 0, originX: 0 },
 });
 
-const FadeChild = posed.div({
-  enter: { opacity: 1 },
-  exit: { opacity: 0 },
-});
-
 interface IDropDownProps {
+  hasBoxShadow?: boolean;
   defaultSelected: any;
   items: any[];
+  setText?: string;
   whenSelectItem: (
     event: React.MouseEvent<HTMLElement>,
     selectItemFromList: Function,
@@ -28,21 +25,22 @@ interface IDropDownProps {
 }
 
 const DropDown: React.SFC<IDropDownProps> = ({
+  hasBoxShadow,
   defaultSelected,
   items,
+  setText,
   whenSelectItem,
   displaySelected,
   displayItems,
 }) => {
   const [isOpen, toggleOpen] = useState(false);
+  const [selectedItem, selectItemFromList] = useState(
+    defaultSelected,
+  );
 
   function openListOnClick() {
     toggleOpen(!isOpen);
   }
-
-  const [selectedItem, selectItemFromList] = useState(
-    defaultSelected,
-  );
 
   function itemOnClick(
     e: React.MouseEvent<HTMLElement>,
@@ -51,8 +49,19 @@ const DropDown: React.SFC<IDropDownProps> = ({
     toggleOpen(false);
   }
 
+  const boxShadowStyle = hasBoxShadow
+    ? '0 4px 16px rgba(0, 0, 0.25, 0.4)'
+    : '';
+
+  let toDisplay = setText
+    ? setText
+    : displaySelected(selectedItem);
+
   return (
-    <FlexCard flexDirection="column">
+    <FlexCard
+      flexDirection="column"
+      css={{ position: 'relative' }}
+    >
       <FlexCard
         width="160px"
         alignItems="center"
@@ -61,15 +70,23 @@ const DropDown: React.SFC<IDropDownProps> = ({
         color="white1"
         px={1}
         py={2}
-        boxShadow="0 4px 16px rgba(0, 0, 0.25, 0.4)"
-        css={{ cursor: 'pointer' }}
+        boxShadow={boxShadowStyle}
+        css={{
+          cursor: 'pointer',
+        }}
         onClick={openListOnClick}
       >
-        <Text>{displaySelected(selectedItem)}</Text>
+        <Text>{toDisplay}</Text>
         <Image src={arrowDown} alt="" />
       </FlexCard>
 
-      <PoseGroup>
+      <PoseGroup
+        style={{
+          position: 'absolute',
+          top: 44,
+          width: '100%',
+        }}
+      >
         {isOpen && (
           <ListBox key="provinces" width="160px">
             <FlexCard

@@ -1,4 +1,16 @@
-let cities = {
+import { provinces } from './provinces';
+
+interface ICityData {
+  province: string;
+  name: string;
+  id: string;
+}
+
+interface ICitiesData {
+  [provinceId: string]: ICityData[]
+}
+
+let cities: ICitiesData = {
   '110000': [
     {
       province: '北京市',
