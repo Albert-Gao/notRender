@@ -6,7 +6,10 @@ import {
   SharedDropDown,
 } from './shared';
 import { cities } from './data/cities';
-import { ICity, ILocation } from '../../../../../store/AppStore.type';
+import {
+  ICity,
+  ILocation,
+} from '../../../../../store/AppStore.type';
 
 interface ICitiesDropDownProps {
   setSelectedCity?: (city: ILocation) => void;

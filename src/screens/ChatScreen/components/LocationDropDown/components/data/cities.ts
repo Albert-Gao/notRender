@@ -7,7 +7,7 @@ interface ICityData {
 }
 
 interface ICitiesData {
-  [provinceId: string]: ICityData[]
+  [provinceId: string]: ICityData[];
 }
 
 let cities: ICitiesData = {
