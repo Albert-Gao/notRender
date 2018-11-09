@@ -1,6 +1,9 @@
 import React from 'react';
 import { Flex, Button as RebassButton } from 'rebass';
 import { styled } from '../../../../styles/styledLib';
+import { inject, observer } from 'mobx-react';
+import { IBaseStepType } from '../../utils';
+import AppStore from '../../../../store/AppStore';
 
 const Button = styled(RebassButton)`
   width: 140px;
@@ -27,13 +30,34 @@ const Button = styled(RebassButton)`
   }
 `;
 
-const YesOrNo = () => {
+interface IYesOrNoProp extends IBaseStepType {
+  setIsDegreeGetInChina: (value: boolean) => void;
+}
+
+const YesOrNo: React.SFC<IYesOrNoProp> = ({
+  setIsDegreeGetInChina,
+  callback,
+}) => {
+  const setValue = (value: boolean) => () => {
+    setIsDegreeGetInChina(value);
+    callback();
+  };
+
   return (
     <Flex>
-      <Button bg="primary">Yes</Button>
-      <Button bg="primary">No</Button>
+      <Button bg="primary" onClick={setValue(true)}>
+        Yes
+      </Button>
+      <Button bg="primary" onClick={setValue(false)}>
+        No
+      </Button>
     </Flex>
   );
 };
 
-export default YesOrNo;
+export default inject(
+  ({ appStore }: { appStore: AppStore }) => ({
+    setIsDegreeGetInChina:
+      appStore.setIsDegreeGetInChina,
+  }),
+)(observer(YesOrNo));

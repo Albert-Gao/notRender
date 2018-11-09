@@ -28,6 +28,9 @@ export default class AppStore {
   };
 
   @observable
+  isDegreeGetInChina = true;
+
+  @observable
   selectedCity: ICity = {
     province: '',
     name: '',
@@ -69,6 +72,11 @@ export default class AppStore {
   @action.bound
   setSelectedProvince(province: ILocation) {
     this.selectedProvince = province;
+  }
+
+  @action.bound
+  setIsDegreeGetInChina(value: boolean) {
+    this.isDegreeGetInChina = value;
   }
 
   isIndexOutOfRange(index: number): boolean {
