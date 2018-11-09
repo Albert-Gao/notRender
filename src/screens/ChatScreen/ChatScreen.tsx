@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Flex } from 'rebass';
-import { inject, observer } from 'mobx-react';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
-import { ReactElementArray } from '../../store/AppStore.type';
+import { AppStoreContext } from '../../store/store';
+import { observer } from '../../miscellaneous/mobx-react';
 
-const ChatScreen: React.SFC<{
-  steps: ReactElementArray;
-}> = ({ steps }) => {
+const ChatScreen = () => {
+  const { steps } = useContext(AppStoreContext);
+
   return (
     <Flex width={1} flexDirection="column">
       <Header title="我是空空的标题栏" />
@@ -31,6 +31,4 @@ const ChatScreen: React.SFC<{
   );
 };
 
-export default inject(({ appStore }) => ({
-  steps: appStore.steps,
-}))(observer(ChatScreen));
+export default observer(ChatScreen);

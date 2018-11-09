@@ -1,29 +1,20 @@
-import React from 'react';
-import { inject, observer } from 'mobx-react';
-import AppStore from '../../../../../store/AppStore';
+import React, { memo, useContext } from 'react';
 import { provinces } from './data/provinces';
 import {
   SharedDropDown,
   getWhenSelectItem,
 } from './shared';
-import {
-  ICity,
-  ILocation,
-} from '../../../../../store/AppStore.type';
+import { AppStoreContext } from '../../../../../store/store';
 
-interface IProvincesDropDownProps {
-  selectedProvinceName?: string;
-  setSelectedProvince?: (location: ILocation) => void;
-  setSelectedCity?: (city: ICity) => void;
-}
+function ProvincesDropDown() {
+  const {
+    setSelectedProvince,
+    setSelectedCity,
+    selectedProvince,
+  } = useContext(AppStoreContext);
 
-const ProvincesDropDown: React.SFC<
-  IProvincesDropDownProps
-> = ({
-  selectedProvinceName,
-  setSelectedProvince,
-  setSelectedCity,
-}) => {
+  const selectedProvinceName = selectedProvince.name;
+
   const whenSelectItem = getWhenSelectItem(
     selected => {
       setSelectedProvince!(selected);
@@ -45,13 +36,6 @@ const ProvincesDropDown: React.SFC<
       defaultText="请选择 省"
     />
   );
-};
+}
 
-export default inject(
-  ({ appStore }: { appStore: AppStore }) => ({
-    selectedProvinceName:
-      appStore.selectedProvince.name,
-    setSelectedProvince: appStore.setSelectedProvince,
-    setSelectedCity: appStore.setSelectedCity,
-  }),
-)(observer(ProvincesDropDown));
+export default memo(ProvincesDropDown);

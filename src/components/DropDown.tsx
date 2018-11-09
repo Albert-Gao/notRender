@@ -108,7 +108,6 @@ const DropDown: React.SFC<IDropDownProps> = ({
           alt=""
         />
       </FlexCard>
-
       <PoseGroup
         style={{
           position: 'absolute',
@@ -119,6 +118,7 @@ const DropDown: React.SFC<IDropDownProps> = ({
         {isOpen && (
           <ListBox key="provinces" width="160px">
             <FlexCard
+              style={{ position: 'relative' }}
               flexDirection="column"
               border="1px solid #E75B41"
               px={3}
@@ -127,6 +127,7 @@ const DropDown: React.SFC<IDropDownProps> = ({
               bg="white1"
               css={{
                 overflowY: 'auto',
+                zIndex: '99',
               }}
             >
               {items.map(displayItems(itemOnClick))}

@@ -1,10 +1,10 @@
-import React from 'react';
-import { inject, observer } from 'mobx-react';
+import React, { useContext } from 'react';
+import { observer } from '../../../miscellaneous/mobx-react';
 import { Text } from 'rebass';
-import AppStore from '../../../store/AppStore';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
+import { AppStoreContext } from '../../../store/store';
 
 const StudyAreasData = [
   '传播影视',
@@ -51,13 +51,14 @@ interface IStudyAreasDropDown extends IBaseStepType {
   setSelectedStudyArea: Function;
 }
 
-const StudyAreasDropDown: React.SFC<
-  IStudyAreasDropDown
-> = ({
-  selectedStudyArea,
-  setSelectedStudyArea,
+const StudyAreasDropDown: React.SFC<IBaseStepType> = ({
   callback,
 }) => {
+  const {
+    selectedStudyArea,
+    setSelectedStudyArea,
+  } = useContext(AppStoreContext);
+
   const whenSelectItem = (
     event: React.MouseEvent<HTMLElement>,
     selectItemFromList: Function,
@@ -87,10 +88,4 @@ const StudyAreasDropDown: React.SFC<
   );
 };
 
-export default inject(
-  ({ appStore }: { appStore: AppStore }) => ({
-    selectedStudyArea: appStore.selectedStudyArea,
-    setSelectedStudyArea:
-      appStore.setSelectedStudyArea,
-  }),
-)(observer(StudyAreasDropDown));
+export default observer(StudyAreasDropDown);

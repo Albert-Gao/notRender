@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { observer } from 'mobx-react';
+import {
+  Link,
+  RouteComponentProps,
+} from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
 import HomeScreenShowData from './components/HomeScreenShowData';
 
-function HomeScreen() {
+const HomeScreen: React.SFC<
+  RouteComponentProps<any>
+> = () => {
   return (
     <div>
       <HomeScreenShowData />
@@ -12,6 +16,6 @@ function HomeScreen() {
       <Link to={ROUTES.CHAT}>开始免费评估</Link>
     </div>
   );
-}
+};
 
-export default observer(HomeScreen);
+export default HomeScreen;

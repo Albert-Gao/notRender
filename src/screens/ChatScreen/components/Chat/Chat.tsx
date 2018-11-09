@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Flex } from 'rebass';
 import Words, {
   IWordsProps,
@@ -15,4 +15,4 @@ const Chat: React.SFC<IWordsProps> = ({
   </Flex>
 );
 
-export default Chat;
+export default memo(Chat);

@@ -1,36 +1,28 @@
-import React from 'react';
-import { inject, observer } from 'mobx-react';
-import AppStore from '../../../../../store/AppStore';
+import React, { memo, useContext } from 'react';
 import {
   getWhenSelectItem,
   SharedDropDown,
 } from './shared';
 import { cities } from './data/cities';
-import {
-  ICity,
-  ILocation,
-} from '../../../../../store/AppStore.type';
-
-interface ICitiesDropDownProps {
-  setSelectedCity?: (city: ILocation) => void;
-  selectedProvince?: ILocation;
-  selectedCity?: ICity;
-  callback?: Function;
-}
+import { ILocation } from '../../../../../store/AppStore.type';
+import { AppStoreContext } from '../../../../../store/store';
+import { observer } from '../../../../../miscellaneous/mobx-react';
+import { IBaseStepType } from '../../../utils';
 
 const getItems = (selectedProvince: ILocation) =>
   selectedProvince
     ? cities[selectedProvince.id]
     : [{ name: '', id: '' }];
 
-const CitiesDropDown: React.SFC<
-  ICitiesDropDownProps
-> = ({
-  setSelectedCity,
-  selectedProvince,
-  selectedCity,
+const CitiesDropDown: React.SFC<IBaseStepType> = ({
   callback,
 }) => {
+  const {
+    selectedProvince,
+    selectedCity,
+    setSelectedCity,
+  } = useContext(AppStoreContext);
+
   const whenSelectItem = getWhenSelectItem(
     selected => {
       setSelectedCity!(selected);
@@ -50,10 +42,4 @@ const CitiesDropDown: React.SFC<
   );
 };
 
-export default inject(
-  ({ appStore }: { appStore: AppStore }) => ({
-    selectedProvince: appStore.selectedProvince,
-    selectedCity: appStore.selectedCity,
-    setSelectedCity: appStore.setSelectedCity,
-  }),
-)(observer(CitiesDropDown));
+export default observer(CitiesDropDown);
