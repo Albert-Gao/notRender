@@ -10,6 +10,7 @@ const ListBox = posed.div({
 });
 
 interface IDropDownProps {
+  css?: React.CSSProperties;
   hasBoxShadow?: boolean;
   initializeSelected: any;
   items: any[];
@@ -50,6 +51,7 @@ const DropDown: React.SFC<IDropDownProps> = ({
   whenSelectItem,
   displaySelected,
   displayItems,
+  css,
 }) => {
   const [isOpen, toggleOpen] = useState(false);
   const [selectedItem, selectItemFromList] = useState(
@@ -80,7 +82,10 @@ const DropDown: React.SFC<IDropDownProps> = ({
   return (
     <FlexCard
       flexDirection="column"
-      css={{ position: 'relative' }}
+      bg="#c3c2c2"
+      css={{
+        position: 'relative',
+      }}
     >
       <FlexCard
         width="160px"
@@ -93,6 +98,7 @@ const DropDown: React.SFC<IDropDownProps> = ({
         boxShadow={boxShadowStyle}
         css={{
           cursor: 'pointer',
+          ...css,
         }}
         onClick={openListOnClick}
       >

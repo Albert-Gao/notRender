@@ -34,6 +34,10 @@ function ProvincesDropDown() {
       items={provinces}
       whenSelectItem={whenSelectItem}
       defaultText="请选择 省"
+      css={{
+        borderTopLeftRadius: '5px',
+        borderBottomLeftRadius: '5px',
+      }}
     />
   );
 }

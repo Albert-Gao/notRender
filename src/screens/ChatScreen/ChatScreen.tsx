@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Flex } from 'rebass';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
@@ -8,6 +8,8 @@ import { observer } from '../../miscellaneous/mobx-react';
 
 const ChatScreen = () => {
   const { steps } = useContext(AppStoreContext);
+
+  const [isChecked, setChecked] = useState(false);
 
   return (
     <Flex width={1} flexDirection="column">

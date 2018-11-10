@@ -63,6 +63,7 @@ interface ISharedDropDownProp {
   items: any[];
   setText?: string;
   defaultText: string;
+  css?: React.CSSProperties;
 }
 
 export const SharedDropDown: React.SFC<
@@ -72,6 +73,7 @@ export const SharedDropDown: React.SFC<
   items,
   setText,
   defaultText,
+  css,
 }) => (
   <DropDown
     hasBoxShadow={false}
@@ -81,5 +83,6 @@ export const SharedDropDown: React.SFC<
     whenSelectItem={whenSelectItem}
     displaySelected={displaySelected(defaultText)}
     displayItems={displayItem}
+    css={css}
   />
 );

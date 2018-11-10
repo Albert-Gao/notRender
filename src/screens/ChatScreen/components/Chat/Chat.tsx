@@ -9,7 +9,7 @@ const Chat: React.SFC<IWordsProps> = ({
   text,
   callback,
 }) => (
-  <Flex mb={4} alignItems="center">
+  <Flex alignItems="center">
     <Avatar />
     <Words text={text} callback={callback} />
   </Flex>

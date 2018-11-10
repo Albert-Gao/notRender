@@ -101,6 +101,7 @@ export default class AppStore {
     const inner = (
       <Flex
         width={1}
+        mb={4}
         justifyContent={position}
         alignItems="center"
       >

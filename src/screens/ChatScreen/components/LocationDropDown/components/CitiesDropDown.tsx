@@ -38,6 +38,10 @@ const CitiesDropDown: React.SFC<IBaseStepType> = ({
       items={items}
       whenSelectItem={whenSelectItem}
       defaultText="请选择 市"
+      css={{
+        borderTopRightRadius: '5px',
+        borderBottomRightRadius: '5px',
+      }}
     />
   );
 };
