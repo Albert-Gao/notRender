@@ -6,7 +6,7 @@ import {
 import { ROUTES } from '../../routes/routes';
 import HomeScreenShowData from './components/HomeScreenShowData';
 
-const HomeScreen: React.SFC<
+const HomeScreen: React.FC<
   RouteComponentProps<any>
 > = () => {
   return (

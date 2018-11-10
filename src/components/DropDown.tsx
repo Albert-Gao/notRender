@@ -43,7 +43,7 @@ const getValueToDisplay = ({
   return selectedItem;
 };
 
-const DropDown: React.SFC<IDropDownProps> = ({
+const DropDown: React.FC<IDropDownProps> = ({
   hasBoxShadow,
   initializeSelected,
   items,

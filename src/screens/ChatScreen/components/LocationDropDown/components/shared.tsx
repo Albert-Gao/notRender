@@ -66,7 +66,7 @@ interface ISharedDropDownProp {
   css?: React.CSSProperties;
 }
 
-export const SharedDropDown: React.SFC<
+export const SharedDropDown: React.FC<
   ISharedDropDownProp
 > = ({
   whenSelectItem,

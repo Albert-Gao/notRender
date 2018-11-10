@@ -10,7 +10,7 @@ interface ISwitchProp {
   setChecked: (isChecked: boolean) => void;
 }
 
-const Switch: React.SFC<ISwitchProp> = ({
+const Switch: React.FC<ISwitchProp> = ({
   textForTrue,
   textForFalse,
   isChecked,

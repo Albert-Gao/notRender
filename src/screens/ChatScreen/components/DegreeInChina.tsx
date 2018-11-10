@@ -4,7 +4,7 @@ import { IBaseStepType } from '../utils';
 import Switch from '../../../components/Switch/Switch';
 import { observer } from '../../../miscellaneous/mobx-react';
 
-const DegreeInChina: React.SFC<IBaseStepType> = ({
+const DegreeInChina: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const {

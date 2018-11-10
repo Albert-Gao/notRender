@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Box, Text } from 'rebass';
 import GoBackButton from './components/GoBackButton';
 
-const Header: React.SFC<{ title: string }> = ({
+const Header: React.FC<{ title: string }> = ({
   title,
 }) => (
   <Flex

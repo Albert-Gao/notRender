@@ -5,7 +5,7 @@ import Words, {
 } from './components/Words/Words';
 import Avatar from './components/Avatar';
 
-const Chat: React.SFC<IWordsProps> = ({
+const Chat: React.FC<IWordsProps> = ({
   text,
   callback,
 }) => (

@@ -5,7 +5,7 @@ import { AppStoreContext } from '../../../../store/store';
 import { observer } from '../../../../miscellaneous/mobx-react';
 import BaseButton from './YesOrNo.base';
 
-const YesOrNo: React.SFC<IBaseStepType> = ({
+const YesOrNo: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const { setIsDegreeGetInChina } = useContext(

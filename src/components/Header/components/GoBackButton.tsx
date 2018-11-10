@@ -10,7 +10,7 @@ import { History } from 'history';
 const onClickHandler = (history: History) => () =>
   history.goBack();
 
-const GoBackButton: React.SFC<RouteComponentProps> = ({
+const GoBackButton: React.FC<RouteComponentProps> = ({
   history,
 }) => (
   <Button

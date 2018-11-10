@@ -14,7 +14,7 @@ const getItems = (selectedProvince: ILocation) =>
     ? cities[selectedProvince.id]
     : [{ name: '', id: '' }];
 
-const CitiesDropDown: React.SFC<IBaseStepType> = ({
+const CitiesDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const {

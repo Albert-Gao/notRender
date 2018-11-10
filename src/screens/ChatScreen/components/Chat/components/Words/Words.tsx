@@ -19,7 +19,7 @@ export interface IWordsProps extends IBaseStepType {
   text: string;
 }
 
-const Words: React.SFC<IWordsProps> = ({
+const Words: React.FC<IWordsProps> = ({
   text,
   callback,
 }) => {

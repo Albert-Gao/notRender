@@ -46,12 +46,7 @@ const displayItem = (itemOnClick: Function) => (
   </Text>
 );
 
-interface IStudyAreasDropDown extends IBaseStepType {
-  selectedStudyArea: string;
-  setSelectedStudyArea: Function;
-}
-
-const StudyAreasDropDown: React.SFC<IBaseStepType> = ({
+const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const {
