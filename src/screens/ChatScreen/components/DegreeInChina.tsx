@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { observer } from 'mobx-react-lite';
 import { AppStoreContext } from '../../../store/store';
 import { IBaseStepType } from '../utils';
 import Switch from '../../../components/Switch/Switch';
-import { observer } from '../../../miscellaneous/mobx-react';
 
 const DegreeInChina: React.FC<IBaseStepType> = ({
   callback,

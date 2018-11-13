@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { observer } from '../../../miscellaneous/mobx-react';
+import { observer } from 'mobx-react-lite';
 import { Text } from 'rebass';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown';

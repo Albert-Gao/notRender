@@ -4,7 +4,7 @@ import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
 import { AppStoreContext } from '../../store/store';
-import { observer } from '../../miscellaneous/mobx-react';
+import { observer } from 'mobx-react-lite';
 
 const ChatScreen = () => {
   const { steps } = useContext(AppStoreContext);

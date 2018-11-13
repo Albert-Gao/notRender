@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Flex } from 'rebass';
+import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../utils';
 import { AppStoreContext } from '../../../../store/store';
-import { observer } from '../../../../miscellaneous/mobx-react';
 import BaseButton from './YesOrNo.base';
 
 const YesOrNo: React.FC<IBaseStepType> = ({

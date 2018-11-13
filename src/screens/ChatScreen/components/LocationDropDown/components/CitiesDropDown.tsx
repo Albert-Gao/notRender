@@ -6,7 +6,7 @@ import {
 import { cities } from './data/cities';
 import { ILocation } from '../../../../../store/AppStore.type';
 import { AppStoreContext } from '../../../../../store/store';
-import { observer } from '../../../../../miscellaneous/mobx-react';
+import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../../utils';
 
 const getItems = (selectedProvince: ILocation) =>
