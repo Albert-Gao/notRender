@@ -1,7 +1,8 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-const FinalRegisterScreen = () => (
-  <div>Register Screen</div>
-);
+const FinalRegisterScreen: React.FC<
+  RouteComponentProps
+> = () => <div>Register Screen</div>;
 
 export default FinalRegisterScreen;

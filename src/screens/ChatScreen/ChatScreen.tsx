@@ -1,12 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Flex } from 'rebass';
+import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
 import { AppStoreContext } from '../../store/store';
 
-const ChatScreen = () => {
+const ChatScreen: React.FC<
+  RouteComponentProps
+> = () => {
   const { steps } = useContext(AppStoreContext);
 
   return (

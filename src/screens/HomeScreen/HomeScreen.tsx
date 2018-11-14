@@ -7,13 +7,14 @@ import { ROUTES } from '../../routes/routes';
 import HomeScreenShowData from './components/HomeScreenShowData';
 
 const HomeScreen: React.FC<
-  RouteComponentProps<any>
+  RouteComponentProps
 > = () => {
   return (
     <div>
       <HomeScreenShowData />
       <Link to={ROUTES.LOGIN}>登陆</Link>
-      <Link to={ROUTES.CHAT}>开始免费评估</Link>
+      <br />
+      <Link to={ROUTES.CHAT}>开始注册</Link>
     </div>
   );
 };

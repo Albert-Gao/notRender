@@ -3,6 +3,7 @@ import {
   BrowserRouter,
   Route,
   Switch,
+  RouteComponentProps,
 } from 'react-router-dom';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
@@ -22,21 +23,34 @@ const Routes = () => (
       <Route
         exact
         path={ROUTES.HOME}
-        component={HomeScreen}
+        component={(props: RouteComponentProps) => (
+          <HomeScreen {...props} />
+        )}
       />
       <Route
         path={ROUTES.LOGIN}
-        component={LoginScreen}
+        component={(props: RouteComponentProps) => (
+          <LoginScreen {...props} />
+        )}
       />
       <Route
         path={ROUTES.CHAT}
-        component={ChatScreen}
+        component={(props: RouteComponentProps) => (
+          <ChatScreen {...props} />
+        )}
       />
       <Route
         path={ROUTES.FINAL_REGISTER}
-        component={FinalRegisterScreen}
+        component={(props: RouteComponentProps) => (
+          <FinalRegisterScreen {...props} />
+        )}
       />
-      <Route path="*" component={HomeScreen} />
+      <Route
+        path="*"
+        component={(props: RouteComponentProps) => (
+          <HomeScreen {...props} />
+        )}
+      />
     </Switch>
   </BrowserRouter>
 );
