@@ -17,40 +17,35 @@ export const ROUTES = {
   FINAL_REGISTER: '/final-register',
 };
 
+// This is for handling the bug from react-is
+// after fixed, we don't need to use this work-around
+const wrap = (
+  Component: React.ComponentType<RouteComponentProps>,
+) => (props: RouteComponentProps) => (
+  <Component {...props} />
+);
+
 const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route
         exact
         path={ROUTES.HOME}
-        component={(props: RouteComponentProps) => (
-          <HomeScreen {...props} />
-        )}
+        component={wrap(HomeScreen)}
       />
       <Route
         path={ROUTES.LOGIN}
-        component={(props: RouteComponentProps) => (
-          <LoginScreen {...props} />
-        )}
+        component={wrap(LoginScreen)}
       />
       <Route
         path={ROUTES.CHAT}
-        component={(props: RouteComponentProps) => (
-          <ChatScreen {...props} />
-        )}
+        component={wrap(ChatScreen)}
       />
       <Route
         path={ROUTES.FINAL_REGISTER}
-        component={(props: RouteComponentProps) => (
-          <FinalRegisterScreen {...props} />
-        )}
+        component={wrap(FinalRegisterScreen)}
       />
-      <Route
-        path="*"
-        component={(props: RouteComponentProps) => (
-          <HomeScreen {...props} />
-        )}
-      />
+      <Route path="*" component={wrap(HomeScreen)} />
     </Switch>
   </BrowserRouter>
 );
