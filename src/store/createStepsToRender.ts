@@ -24,6 +24,6 @@ export default (callback: Function): IStep[] => {
         callback,
       },
     },
-    getChat('hi, i am step 2'),
+    getChat('hi, i am step 3'),
   ];
 };

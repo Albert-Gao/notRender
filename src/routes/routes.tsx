@@ -5,7 +5,6 @@ import {
   Switch,
   RouteComponentProps,
 } from 'react-router-dom';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 
 export const ROUTES = {
@@ -26,16 +25,7 @@ const wrap = (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route
-        exact
-        path={ROUTES.HOME}
-        component={wrap(HomeScreen)}
-      />
-      <Route
-        path={ROUTES.CHAT}
-        component={wrap(ChatScreen)}
-      />
-      <Route path="*" component={wrap(HomeScreen)} />
+      <Route path="*" component={wrap(ChatScreen)} />
     </Switch>
   </BrowserRouter>
 );

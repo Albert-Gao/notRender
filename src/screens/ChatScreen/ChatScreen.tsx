@@ -10,24 +10,9 @@ const ChatScreen: React.FC<
   const { steps } = useContext(AppStoreContext);
 
   return (
-    <div
-      style={{
-        width: '100%',
-        flexDirection: 'column',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          overflowY: 'auto',
-        }}
-      >
-        <PoseGroup animateOnMount>{steps}</PoseGroup>
-      </div>
+    <div>
+      <PoseGroup animateOnMount>{steps}</PoseGroup>
+      currentStep: {steps.length}
     </div>
   );
 };

@@ -11,7 +11,7 @@ const LocationDropDown: React.FC<IBaseStepType> = ({
         callback as (e: React.MouseEvent) => void
       }
     >
-      Click me to step 3
+      I'm step 2, Click me to step 3
     </button>
   );
 };
