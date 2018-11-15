@@ -2,10 +2,6 @@ import React from 'react';
 import { action, configure, observable } from 'mobx';
 import createStepsToRender from './createStepsToRender';
 import {
-  wrapComponent,
-  getComponentInfo,
-} from './utils';
-import {
   ICity,
   ILocation,
   IStep,
@@ -85,23 +81,14 @@ export default class AppStore {
   addNewStep(index: number) {
     if (this.isIndexOutOfRange(index)) return;
 
-    const shouldPlaceLeft =
-      this.toRender[index].position === 'left';
-
-    const {
-      Component,
-      props,
-      position,
-    } = getComponentInfo(
-      this.toRender[index],
-      shouldPlaceLeft,
-    );
+    const Component = this.toRender[index].component;
+    const { props } = this.toRender[index];
 
     const inner = (
       <div
+        key={index}
         style={{
           width: '100%',
-          justifyContent: `${position}`,
           alignItems: 'center',
         }}
       >
@@ -109,13 +96,7 @@ export default class AppStore {
       </div>
     );
 
-    const toRender = wrapComponent(
-      inner,
-      shouldPlaceLeft,
-      index,
-    );
-
-    this.steps.push(toRender);
+    this.steps.push(inner);
 
     console.log(
       `this.steps.length after push: ${

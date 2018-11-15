@@ -1,8 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { IBaseStepType } from '../../utils';
+import { IBaseStepType } from '../utils';
 
-const LocationDropDown: React.FC<IBaseStepType> = ({
+const StepButton: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   return (
@@ -11,9 +11,9 @@ const LocationDropDown: React.FC<IBaseStepType> = ({
         callback as (e: React.MouseEvent) => void
       }
     >
-      I'm step 2, Click me to step 3
+      Click me to the next step
     </button>
   );
 };
 
-export default observer(LocationDropDown);
+export default observer(StepButton);

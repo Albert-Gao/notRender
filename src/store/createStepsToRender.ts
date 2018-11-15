@@ -1,29 +1,23 @@
-import Chat from '../screens/ChatScreen/components/Chat/Chat';
 import { IStep } from './AppStore.type';
-import LocationDropDown from '../screens/ChatScreen/components/LocationDropDown/LocationDropDown';
+import StepButton from '../screens/ChatScreen/components/StepButton';
 
-const LEFT = 'left';
-const RIGHT = 'right';
-
-export default (callback: Function): IStep[] => {
-  const getChat = (text: string): IStep => ({
-    component: Chat,
-    position: LEFT,
+export default (callback: Function): IStep[] => [
+  {
+    component: StepButton,
     props: {
-      text,
       callback,
     },
-  });
-
-  return [
-    getChat('hi, i am step 1'),
-    {
-      component: LocationDropDown,
-      position: RIGHT,
-      props: {
-        callback,
-      },
+  },
+  {
+    component: StepButton,
+    props: {
+      callback,
     },
-    getChat('hi, i am step 3'),
-  ];
-};
+  },
+  {
+    component: StepButton,
+    props: {
+      callback,
+    },
+  },
+];

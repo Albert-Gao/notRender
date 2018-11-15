@@ -1,6 +1,5 @@
 export interface IStep {
   component: React.ComponentType<any>;
-  position: 'left' | 'right';
   props: object;
 }
 

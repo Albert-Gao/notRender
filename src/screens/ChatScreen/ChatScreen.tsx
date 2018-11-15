@@ -12,7 +12,7 @@ const ChatScreen: React.FC<
   return (
     <div>
       <PoseGroup animateOnMount>{steps}</PoseGroup>
-      currentStep: {steps.length}
+      step length: {steps.length}
     </div>
   );
 };
