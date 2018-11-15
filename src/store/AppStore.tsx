@@ -1,7 +1,6 @@
 import React from 'react';
 import { action, configure, observable } from 'mobx';
 import createStepsToRender from './createStepsToRender';
-import { Flex } from 'rebass';
 import {
   wrapComponent,
   getComponentInfo,
@@ -99,14 +98,15 @@ export default class AppStore {
     );
 
     const inner = (
-      <Flex
-        width={1}
-        mb={4}
-        justifyContent={position}
-        alignItems="center"
+      <div
+        style={{
+          width: '100%',
+          justifyContent: `${position}`,
+          alignItems: 'center',
+        }}
       >
         <Component {...props} />
-      </Flex>
+      </div>
     );
 
     const toRender = wrapComponent(
@@ -116,5 +116,11 @@ export default class AppStore {
     );
 
     this.steps.push(toRender);
+
+    console.log(
+      `this.steps.length after push: ${
+        this.steps.length
+      }`,
+    );
   }
 }

@@ -7,8 +7,6 @@ import {
 } from 'react-router-dom';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
-import LoginScreen from '../screens/LoginScreen/LoginScreen';
-import FinalRegisterScreen from '../screens/FinalRegisterScreen/FinalRegisterScreen';
 
 export const ROUTES = {
   HOME: '/',
@@ -34,16 +32,8 @@ const Routes = () => (
         component={wrap(HomeScreen)}
       />
       <Route
-        path={ROUTES.LOGIN}
-        component={wrap(LoginScreen)}
-      />
-      <Route
         path={ROUTES.CHAT}
         component={wrap(ChatScreen)}
-      />
-      <Route
-        path={ROUTES.FINAL_REGISTER}
-        component={wrap(FinalRegisterScreen)}
       />
       <Route path="*" component={wrap(HomeScreen)} />
     </Switch>

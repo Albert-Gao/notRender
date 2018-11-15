@@ -4,17 +4,13 @@ import {
   RouteComponentProps,
 } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
-import HomeScreenShowData from './components/HomeScreenShowData';
 
 const HomeScreen: React.FC<
   RouteComponentProps
 > = () => {
   return (
     <div>
-      <HomeScreenShowData />
-      <Link to={ROUTES.LOGIN}>登陆</Link>
-      <br />
-      <Link to={ROUTES.CHAT}>开始注册</Link>
+      <Link to={ROUTES.CHAT}>start demo</Link>
     </div>
   );
 };
